@@ -1,0 +1,16 @@
+ {{include '../layout/header.html'}}
+<div>
+    <!-- <h1 class="text-center">
+        {{article.title}}
+        <a href="#" class="btn btn-info pull-right">编辑</a>
+    </h1> -->
+    <h1 class="text-center">
+        {{ article.title }} {{ if (islogin && user.id === article.authorId) }}
+        <a href="/article/edit/<%= article.id %>" class="btn btn-info pull-right">编辑</a> {{/if}}
+    </h1>
+    <hr>
+    <div>
+        {{@ article.content}}
+    </div>
+</div>
+{{include '../layout/footer.html'}}

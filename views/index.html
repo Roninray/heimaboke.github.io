@@ -1,0 +1,113 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- blog nav -->
+<!-- <nav class="navbar navbar-default"> -->
+<!-- <div class="container-fluid"> -->
+<!-- Brand and toggle get grouped for better mobile display -->
+<!-- <div class="navbar-header"> -->
+<!-- <a class="navbar-brand" href="/">黑马博客</a>
+            </div> -->
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+<!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav"> -->
+
+
+<!-- <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+
+                    </ul>
+                    </li>
+                </ul> -->
+<!-- <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="button" class="btn btn-default">Submit</button>
+                </form> -->
+<!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+
+<!-- 用户名和注销按钮组 -->
+<!-- <% if(islogin) { %>
+                        <div class="navbar-form nav navbar-nav navbar-right">
+                            <button class="btn btn-warning">用户名 <strong> <%= user.nickname %> </strong></button>
+                            <a class="btn btn-danger" href="/layout">注销</a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">发表 <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="./article/add.html">文章</a></li>
+                                    <li><a href="#">内容</a></li>
+
+                                </ul>
+                            </li>
+                        </ul> -->
+<!-- 注册和登录按钮组 -->
+<!-- <% } else { %>
+                            <div class="navbar-form nav navbar-nav navbar-right">
+                                <a class="btn btn-success" href="/register">注册</a>
+                                <a class="btn btn-primary" href="/login">登录</a>
+                            </div>
+                            <% }%>
+                </div> -->
+<!-- /.navbar-collapse -->
+<!-- </div> -->
+<!-- /.container-fluid -->
+<!-- </nav>  -->
+{{include './layout/header.html'}}
+<div class="container">
+    <h1>文章列表</h1>
+    <div class="list-group">
+        {{ each article val}}
+        <a href="./article/info/{{val.id}}" class="list-group-item">
+            {{val.title}}
+            <span class="badge" style="background: #5cb85c">发表时间:{{val.ctime}} </span>
+            <span class="badge" style="background: #337ab7">作者名称:{{val.nickname}} </span>
+        </a> {{/each}}
+    </div>
+</div>
+<!-- 分页区域 -->
+<!-- 通过bootstrap加载分页按钮 -->
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li>
+            <a href="?page=<%= nowpage-1==0 ?page:nowpage-1 %>" aria-label="Previous">
+                <span aria-hidden="true">上一页</span>
+            </a>
+        </li>
+        <% for(var i = 0; i < totalPage; i++) { %>
+            <li class="<%= nowpage==i+1 ? 'active':''%>">
+                <a href="?page= <%= i+1 %>">
+                    <%= (i + 1) %>
+                </a>
+            </li>
+            <% } %>
+                <li>
+                    <a href="?page=<%= nowpage+1>totalPage? totalPage:nowpage+1 %>" aria-label="Next">
+                        <span aria-hidden="true">下一页</span>
+                    </a>
+                </li>
+    </ul>
+</nav>
+
+<!-- copyright -->
+<!-- <div class="text-center text-muted" style="margin-top: 50px;">黑马程序员 &copy; 杭州中心 2019</div> -->
+{{include './layout/footer.html'}}
+
+</body>
+
+</html>
